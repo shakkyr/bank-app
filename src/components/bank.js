@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Bank = () => {
     const [users, setUsers] = React.useState([]);
-    const [user, setUser] = React.useState(1);
+    const [user, setUser] = React.useState(1234567890);
     const [accountNumber, setaccountNumber] = React.useState(0);
     const [accountPassword, setaccountPassword] = React.useState('');
     React.useEffect(() => {
@@ -58,7 +58,7 @@ const Bank = () => {
       />
 
 
-            {user === 1 ? users.map(user => {
+            {user === 1234567890 ? users.map(user => {
     return <Users user={user}/>
 }) : <div>
                 <h1>welcom </h1>
