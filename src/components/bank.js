@@ -68,7 +68,7 @@ const Bank = () => {
     return <Users user={user}/>
 }) : <div>
                 <h1>welcom </h1>
-                <img src={user.avatar}/>
+                <img alt="users" src={user.avatar}/>
                 <h2>{user.name}</h2>
                 <h3> Account Number: {user.accountNumber}</h3>
                 <Users user={user} calcBalance={calculateBalance}/>

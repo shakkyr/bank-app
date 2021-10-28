@@ -1,19 +1,22 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import axios from "axios";
 import './bank.css'
-import InputButtons from "./inputButtons";
+// import InputButtons from "./inputButtons";
 
 const Users = ({user , handleType ,handleClick}) => {
     const [userData, setUserData] = React.useState([])
     const [balance, setBalance] = React.useState(0);
-    const [cash, setCash] = React.useState([]);
+    // const [cash, setCash] = React.useState([]);
 
     React.useEffect(() => {
         getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     React.useEffect(() => {
          calculateBalance()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [userData])
 
     const getData = async () => {
@@ -24,7 +27,7 @@ const Users = ({user , handleType ,handleClick}) => {
 
     const calculateBalance = () => {
         let arr = [];
-        userData.map(usr => {
+      userData.map(usr => {
             console.log("cash: ", usr.cash);
     
             (usr.isWithdrawal) ? arr.push(usr.cash * -1) : arr.push(usr.cash);
@@ -33,13 +36,14 @@ const Users = ({user , handleType ,handleClick}) => {
             let arrSum = arr.reduce((a, b) => a + b, 0)
             console.log("balance: ", arrSum);
     
-            setBalance(arrSum);
+             setBalance(arrSum);
         })
     }
 
     return (<div>
         <div className='users'>
             <img
+            alt='user'
             src={user.avatar}
             style={{ width: "10%", height: "10%" }}
           ></img>

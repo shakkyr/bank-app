@@ -7,16 +7,19 @@ const Transfer = ({fromUser, toUser, amount, calcBalance}) => {
     const [userData, setUserData] = React.useState([]);
 
 
+    const newLocal = [];
     React.useEffect(() => {
         getData();
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, newLocal);
 
     React.useEffect(() => {
         calcBalance(userData).then(value => {
             setUserBalance(value);
             makeTransaction();
         });
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [userData]);
 
     const getData = async () => {
         await axios.get(`https://6178f9f3aa7f340017404669.mockapi.io/users/${fromUser.id}/bank`).then(res => {
@@ -36,7 +39,7 @@ const Transfer = ({fromUser, toUser, amount, calcBalance}) => {
 
         if (hasEnough) {
             let data = {cash: amount, isWithdrawal: false};
-            const res = await axios.post(`https://6178f9f3aa7f340017404669.mockapi.io/users/1/bank`, data);
+            const res = await axios.post(`https://6178f9f3aa7f340017404669.mockapi.io/users/${toUser.id}/bank`, data);
             console.log("status=", res.status);
         }
 
