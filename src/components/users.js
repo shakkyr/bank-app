@@ -47,7 +47,12 @@ const Users = ({user , handleType ,handleClick}) => {
             src={user.avatar}
             style={{ width: "10%", height: "10%" }}
           ></img>
-            <h2> {user.name}</h2>  
+          <div>
+            <h2> {user.name}</h2> 
+            <h2> Account Number {user.accountNumber}</h2> 
+
+            </div> 
+             
 
             <h6>Age :{user.age}</h6> 
               <h6> From {user.country}</h6>
