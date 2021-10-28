@@ -3,6 +3,7 @@ import axios from "axios";
 import Users from "./users";
 import InputButtons from "./inputButtons";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './bank.css'
 
 const Bank = () => {
     const [users, setUsers] = React.useState([]);
@@ -29,8 +30,12 @@ const Bank = () => {
     const handleType = (e) => {
         if (e.target.getAttribute("data-whatToAdd") === "accountNumber")
         setaccountNumber(e.target.value);
+        console.log(e.target.value);
+        console.log(accountNumber);
         if (e.target.getAttribute("data-whatToAdd") === "password")
         setaccountPassword(e.target.value)
+        console.log(accountPassword);
+        console.log(e.target.value);
     }
 
 
@@ -59,6 +64,7 @@ const Bank = () => {
 
 
             {user === 1234567890 ? users.map(user => {
+                
     return <Users user={user}/>
 }) : <div>
                 <h1>welcom </h1>
@@ -73,5 +79,3 @@ const Bank = () => {
 
 
 export default Bank;
-
-

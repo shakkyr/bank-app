@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
+import './bank.css'
+import InputButtons from "./inputButtons";
 
-const Users = ({user , calcBalance}) => {
+const Users = ({user , handleType ,handleClick}) => {
     const [userData, setUserData] = React.useState([])
     const [balance, setBalance] = React.useState(0);
     const [cash, setCash] = React.useState([]);
@@ -35,12 +37,24 @@ const Users = ({user , calcBalance}) => {
         })
     }
 
-    return (
-        <div>
-            {/*<h2>Name: {user.name}</h2>*/}
-            <h3>Account Balance: <span style={{color: balance < 0 ? "red" : "green"}}>{balance}</span></h3>
+    return (<div>
+        <div className='users'>
+            <img
+            src={user.avatar}
+            style={{ width: "10%", height: "10%" }}
+          ></img>
+            <h2> {user.name}</h2>  
+
+            <h6>Age :{user.age}</h6> 
+              <h6> From {user.country}</h6>
+            <h5> Balance: <span style={{color: balance < 0 ? "red" : "green"}}>{balance}</span></h5><hr></hr><hr></hr>
+           
+
+        </div>
+
         </div>
     )
 }
 
 export default Users;
+

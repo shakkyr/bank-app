@@ -14,14 +14,7 @@ export default function InputButtons({
         onChange={(e) => inputHandlerCallback(e)}
       />
       </p>
-      <p>
-      <input
-        type="text"
-        placeholder="Enter Password"
-        data-whatToAdd={"password"}
-        onChange={(e) => inputHandlerCallback(e)}
-      />
-      </p>
+     
       <p>
       <input
         type="button"
